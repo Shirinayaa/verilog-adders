@@ -7,6 +7,7 @@ This project implements digital adders in Verilog and verifies them using testbe
 Implemented Circuits:
 
 * Half Adder
+* Full Adder
 
 ## Learning Objectives
 
@@ -53,13 +54,57 @@ The SUM output is generated using an XOR operation, while the CARRY output is ge
 
 ---
 
+# Full Adder
+
+Logic:
+
+SUM = A ^ B ^ Cin
+
+Cout = (A & B) | ((A ^ B) & Cin)
+
+Truth Table:
+
+| A | B | Cin | SUM | Cout |
+| - | - | --- | --- | ---- |
+| 0 | 0 | 0   | 0   | 0    |
+| 0 | 0 | 1   | 1   | 0    |
+| 0 | 1 | 0   | 1   | 0    |
+| 0 | 1 | 1   | 0   | 1    |
+| 1 | 0 | 0   | 1   | 0    |
+| 1 | 0 | 1   | 0   | 1    |
+| 1 | 1 | 0   | 0   | 1    |
+| 1 | 1 | 1   | 1   | 1    |
+
+### Description
+
+A Full Adder is a combinational circuit that adds three binary digits.
+
+Inputs:
+
+* A
+* B
+* Cin (Carry In)
+
+Outputs:
+
+* SUM
+* Cout (Carry Out)
+
+The Full Adder can be constructed using two Half Adders and one OR gate.
+
+The SUM output is generated using XOR operations, while the Cout output indicates whether a carry is produced during addition.
+
+---
+
 # Files
 
 * half_adder.v
+* full_adder.v
 
 Testbenches:
 
 * half_adder_tb.v
+* full_adder_tb.v
 
 ---
 
@@ -68,6 +113,10 @@ Testbenches:
 Half Adder simulation waveform generated using GTKWave.
 
 [Half Adder Waveform](screenshots/half_adder_waveform.png)
+
+Full Adder simulation waveform generated using GTKWave.
+
+[Full Adder Waveform](screenshots/full_adder_waveform.png)
 
 ---
 
@@ -85,8 +134,12 @@ Half Adder simulation waveform generated using GTKWave.
 * Binary Addition
 * Combinational Logic
 * Half Adder Design
+* Full Adder Design
+* Hierarchical Design
+* Module Instantiation
 * XOR Gate
 * AND Gate
+* OR Gate
 * Testbenches
 * reg vs wire
 * Unit Under Test (UUT)
@@ -97,7 +150,6 @@ Half Adder simulation waveform generated using GTKWave.
 
 # Future Work
 
-* Full Adder
 * Ripple Carry Adder
 * Carry Lookahead Adder
 * Binary Adder/Subtractor
